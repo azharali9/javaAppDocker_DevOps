@@ -1,0 +1,22 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker Image
+      run: |
+        docker build -t azharali0564/ubuntu_A04_Q02:latest .
+        docker login -u azharali0564 -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Push Docker Image to DockerHub
+      run: docker push azharali0564/ubuntu_A04_Q02:latest
