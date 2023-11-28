@@ -72,6 +72,7 @@ if [ -z "$JAVA_HOME" ] ; then
   fi
 fi
 
+
 if [ -z "$M2_HOME" ] ; then
   ## resolve links - $0 may be a link to maven's home
   PRG="$0"
